@@ -118,6 +118,18 @@ export default function RootLayout({
 
 ### Next/Image Implementation
 
+- You should add the priority property to the image that will be the Largest Contentful Paint (LCP) element for each page
+- The Image Component requires the following properties: src, alt, width and height (or fill)
+- When src is animated or not a known format (JPEG, PNG, WebP, AVIF, GIF, TIFF) the image will be served as-is (unoptimized). So, make sure to use only supported formats.
+
+  `placeholder = 'empty' // "empty" | "blur" | "data:image/..."`
+
+- A placeholder to use while the image is loading. Possible values are blur, empty, or data:image/.... Default is empty.
+
+  `loading = 'lazy' // {lazy} | {eager}`
+
+- The loading behavior of the image. Defaults to lazy. When lazy, defer loading the image until it reaches a calculated distance from the viewport. When eager, load the image immediately.
+
 ```typescript
 // components/OptimizedImage.tsx
 import Image from "next/image";
